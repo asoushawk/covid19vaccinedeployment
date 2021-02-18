@@ -30,7 +30,7 @@ def prevision():
 	os.remove('results.csv')
 	with open('results.csv', 'w') as csvfile:
 		writer = csv.writer(csvfile)
-		writer.writerow(['country', 'results'])
+		writer.writerow(['country', 'results', 'percentage'])
 	f_country = ['0']
 	with open('output3.csv') as csvfile:
 		reader = csv.DictReader(csvfile)
@@ -84,7 +84,7 @@ def prevision():
 											#print(int(result))
 											with open('results.csv', 'a') as csvfile:
 												writer = csv.writer(csvfile)
-												writer.writerow([row1['country'], result])
+												writer.writerow([row1['country'], result, y1])
 										except:
 											pass
 									doable1 = False
@@ -102,13 +102,15 @@ def results():
 		reader = csv.DictReader(csvfile)
 		print("Date:", day)
 		for row in reader:
+
+			percentage = row['percentage']
 			
 			dayssince = day.split("-")
 			result = math.sqrt(float(row['results']) ** 2)
 			delta = timedelta(result)
 			offset = delta + date(int(dayssince[0]), int(dayssince[1]), int(dayssince[2]))
 			prevision = offset.strftime('%Y-%m-%d')
-			print(row['country'], "previsão pra conclusão da vacinação:", prevision)
+			print(row['country'], "previsão pra conclusão da vacinação:", prevision, "-", percentage)
 
 prevision()										
 results()
