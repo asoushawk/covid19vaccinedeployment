@@ -102,27 +102,7 @@ def prevision():
                                     doable1 = False
                                     doable2 = False
                                     break
-                        """
-                        with open ('/home/danielmhl/covid19vaccinedeployment/covid/output.csv') as csvfile:
-                            reader = csv.DictReader(csvfile)
-                            for row1 in reader:
-                                if row1['country'] == foundcountry and day == row1['day'] and row1['percentage'] == "--":
-                                    with open(resultscsv, 'a') as csvfile:
-                                        writer = csv.writer(csvfile)
-                                        result = "--"
-                                        y1 = "0,0%"
-                                        vaccinated = row1['vaccinated']
-                                        writer.writerow([row1['country'], result, y1, vaccinated])
-
-
-                                if row1['country'] == foundcountry and day == row1['day'] and row1['percentage'] == "0,0%":
-                                    with open(resultscsv, 'a') as csvfile:
-                                        writer = csv.writer(csvfile)
-                                        result = "--"
-                                        y1 = "0,0%"
-                                        vaccinated = row1['vaccinated']
-                                        writer.writerow([row1['country'], result, y1, vaccinated])
-                         """
+                      
         except Exception as e:
             print(e)
             pass
